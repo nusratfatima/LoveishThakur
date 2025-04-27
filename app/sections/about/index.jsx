@@ -12,7 +12,7 @@ export function AboutSection() {
     return (
         <LazyMotion features={domAnimation}>
             <section id="about" className="section">
-                <TimeLine className="pt-10"/>
+                <TimeLine className="pt-10" />
                 <div className="pt-20"></div> {/* Added space here */}
                 <HeadingDivider title="About me" />
                 <div className="pt-10 pb-16 max-w-5xl flex flex-col gap-3">
@@ -27,23 +27,22 @@ export function AboutSection() {
                         }}
                     >
                         <p>
-                            Hello, I&apos;m Niranjan Patil, skilled in Design, Development, and Deployments.
+                            Hi, I'm Niranjan Patil — a passionate developer skilled in Next.js, Java, AI/ML, Cloud, and DevOps.
                         </p>
                         <p className="my-3.5">
-                            I&apos;m currently pursuing AIML engineering at Mumbai University and hold a Diploma in Computer Engineering from Pune University. 
-                            Outside of work, I enjoy reading blogs and writing blogs on my personal website niranjann.tech.
-                        </p>
-                        <p>My programming journey officially began in 2019 as a Java developer.</p>
-                        <p className="my-3.5">
-                            In my past roles, I excelled in group leadership and project management, and 
-                            I&apos;m proud of my achievements in mobile app development during my Diploma years.
+                            I’m currently pursuing AIML Engineering at Mumbai University and hold a Diploma in Computer Engineering from Pune University.
                         </p>
                         <p>
-                            I bring to the table expertise in cloud, DevOps, and AI/ML, along with a passion for designing in Figma and Canva.
+                            With hands-on experience in software development, AI model building, MLOps, and cloud-native applications, I enjoy creating intelligent, scalable solutions that solve real-world problems.
                         </p>
                         <p className="my-3.5">
-                            Currently, I&apos;m focused on honing my cloud and DevOps skills, and 
-                            I&apos;m eager to collaborate on projects that leverage my knowledge in AIML and AI tools.
+                            I've led projects that integrate Generative AI, personalized AI agents, and automation pipelines, merging technical skills with leadership.
+                        </p>
+                        <p>
+                            Currently, I’m refining my expertise in Cloud & DevOps for AI workflows and exploring multi-modal AI technologies.
+                        </p>
+                        <p className="my-3.5">
+                            I'm always open to collaborations on impactful tech projects. Let’s innovate together!
                         </p>
                     </div>
                 </div>
