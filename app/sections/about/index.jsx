@@ -27,22 +27,22 @@ export function AboutSection() {
                         }}
                     >
                         <p>
-                            Hi, I'm Niranjan Patil — a passionate developer skilled in Next.js, Java, AI/ML, Cloud, and DevOps.
+                            Hi, I&apos;m Niranjan Patil — a passionate developer skilled in Next.js, Java, AI/ML, Cloud, and DevOps.
                         </p>
                         <p className="my-3.5">
-                            I’m currently pursuing AIML Engineering at Mumbai University and hold a Diploma in Computer Engineering from Pune University.
+                            I&apos;m currently pursuing AIML Engineering at Mumbai University and hold a Diploma in Computer Engineering from Pune University.
                         </p>
                         <p>
                             With hands-on experience in software development, AI model building, MLOps, and cloud-native applications, I enjoy creating intelligent, scalable solutions that solve real-world problems.
                         </p>
                         <p className="my-3.5">
-                            I've led projects that integrate Generative AI, personalized AI agents, and automation pipelines, merging technical skills with leadership.
+                            I&apos;ve led projects that integrate Generative AI, personalized AI agents, and automation pipelines, merging technical skills with leadership.
                         </p>
                         <p>
-                            Currently, I’m refining my expertise in Cloud & DevOps for AI workflows and exploring multi-modal AI technologies.
+                            Currently, I&apos;m refining my expertise in Cloud &amp; DevOps for AI workflows and exploring multi-modal AI technologies.
                         </p>
                         <p className="my-3.5">
-                            I'm always open to collaborations on impactfull tech projects. Let’s innovate together!
+                            I&apos;m always open to collaborations on impactful tech projects. Let&apos;s innovate together!
                         </p>
                     </div>
                 </div>
