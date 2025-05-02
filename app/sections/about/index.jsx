@@ -42,7 +42,7 @@ export function AboutSection() {
                             Currently, I’m refining my expertise in Cloud & DevOps for AI workflows and exploring multi-modal AI technologies.
                         </p>
                         <p className="my-3.5">
-                            I'm always open to collaborations on impactful tech projects. Let’s innovate together!
+                            I'm always open to collaborations on impactfull tech projects. Let’s innovate together!
                         </p>
                     </div>
                 </div>
