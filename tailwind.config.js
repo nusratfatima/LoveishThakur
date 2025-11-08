@@ -40,6 +40,10 @@ module.exports = {
 			},
 			backgroundImage: {
 				inherited: "inherit"
+			},
+			// 👇 Added font family here
+			fontFamily: {
+				abeatkai: ["var(--font-abeatkai)", "sans-serif"],
 			}
 		}	
 	},

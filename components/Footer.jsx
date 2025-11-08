@@ -1,31 +1,57 @@
 "use client";
 
-import { useRef } from "react";
-import { LazyMotion, domAnimation, useInView } from "framer-motion";
-import { ConnectMedia, ScrollTop } from "@/components";
+import { LazyMotion, domAnimation } from "framer-motion";
+import { Mail, Linkedin, Instagram, Phone } from "lucide-react";
 
 export function AppFooter() {
-	const footerRef = useRef(null);
-	const isInView = useInView(footerRef, { once: true });
-	const year = new Date().getFullYear();
+  const year = new Date().getFullYear();
 
-	return (
-		<LazyMotion features={domAnimation}>
-			<footer
-				ref={footerRef}
-				className="container-md py-10 mt-5 relative before:absolute before:top-0 before:left-4 before:w-[calc(100%-16px)] before:h-[1px] before:bg-gray-100"
-				style={{
-					transform: isInView ? "none" : "translateX(-200px)",
-					opacity: isInView ? 1 : 0,
-					transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 1.5s"
-				}}
-			>
-				<div className="flex flex-col md:flex-row justify-between items-center gap-10 md:gap-5">
-					<p className="font-light">Copyright &copy; {year} Niranjan Patil</p>
-					<ScrollTop />
-					<ConnectMedia />
-				</div>
-			</footer>
-		</LazyMotion>
-	);
+  return (
+    <LazyMotion features={domAnimation}>
+      <footer
+        className="container-md py-10 relative font-[avenir] before:absolute before:top-0 before:left-4 before:w-[calc(100%-16px)] before:h-[1px] before:bg-gray-100"
+        style={{
+          backgroundColor: "#3971b8",
+          color: "#fbfcee",
+        }}
+      >
+        <div className="flex flex-col md:flex-row justify-between items-center gap-10 md:gap-5">
+          <p className="font-light" style={{ color: "#343b1b" }}>
+            Copyright &copy; {year} Lavish Thakur
+          </p>
+
+          <div className="flex flex-col md:flex-row items-center gap-5 text-sm">
+            <a
+              href="mailto:loveishvfx@gmail.com"
+              className="flex items-center gap-2 hover:underline"
+            >
+              <Mail size={18} /> loveishvfx@gmail.com
+            </a>
+            <a
+              href="https://www.linkedin.com/in/loveishvfx"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 hover:underline"
+            >
+              <Linkedin size={18} /> Linkedin
+            </a>
+            <a
+              href="https://www.instagram.com/loveishvfx/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 hover:underline"
+            >
+              <Instagram size={18} /> Instagram
+            </a>
+            <a
+              href="tel:+917669928801"
+              className="flex items-center gap-2 hover:underline"
+            >
+              <Phone size={18} /> +91 76699 28801
+            </a>
+          </div>
+        </div>
+      </footer>
+    </LazyMotion>
+  );
 }

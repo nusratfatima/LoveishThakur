@@ -1,152 +1,40 @@
 "use client";
+import { useRef, useState, useEffect } from "react";
 
-import { useEffect, useState, useRef } from "react";
-import Link from "next/link";
-import { LazyMotion, domAnimation, useInView } from "framer-motion";
-import { WelcomeAnimation } from "./IntroAnimation";
-import { useScrollTo } from "@/hooks";
-import { useMediaQuery } from "@/utils";
+export default function IntroSection() {
+  const videoRef = useRef(null);
+  const [showButton, setShowButton] = useState(false);
 
-export function WelcomeSection() {
-	const ref = useRef(null);
-	const introRef = useRef(null);
-	const isInView = useInView(ref, { once: true });
-	const { scrollToEl } = useScrollTo();
-	const isTabletUp = useMediaQuery("min-width: 768px");
+  useEffect(() => {
+    const timer = setTimeout(() => setShowButton(true), 5000);
+    return () => clearTimeout(timer);
+  }, []);
 
-	let [count, setCount] = useState(0);
-	const [text] = useState([
-		"Build SaaS apps for Freelance",
-		"Convert design into modern UI",
-		"Build interactive UI using React/Nextjs",
-		"Deploy using Devops and Cloud"
-	]);
+  return (
+    <section
+      className="relative w-screen h-screen mt-0"
+      style={{ fontFamily: "Avenir, sans-serif" }}
+    >
+      <video
+        ref={videoRef}
+        src="/MainVideo.mp4"
+        className="w-full h-full object-cover"
+        controls={false}
+        autoPlay
+        muted
+        playsInline
+      />
 
-	const onClick = (e) => scrollToEl(e);
-
-	useEffect(() => {
-		let interval = setInterval(() => {
-			setCount(count + 1);
-
-			if (count === 3) {
-				setCount(0);
-			}
-		}, 2000);
-
-		return () => clearInterval(interval);
-	}, [count]);
-
-	return (
-		
-		<LazyMotion features={domAnimation}>
-			<section id="intro" className="section" ref={introRef}>
-				<div className="grid grid-cols-1 md:grid-cols-[1fr_0.5fr] lg:grid-cols-[1fr_0.7fr] gap-4 items-center">
-					<div className="py-5 md:py-10">
-						<h1
-							tabIndex="0"
-							ref={ref}
-							className="text-3xl md:text-5xl xl:text-6xl font-bold"
-							style={{
-								transform: isInView ? "none" : "translateX(-200px)",
-								opacity: isInView ? 1 : 0,
-								transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
-							}}
-						>
-							<p>
-								Hi, I&apos;m <mark>Niranjan</mark> a <mark>passionate</mark> Software Developer.
-							</p>
-						</h1>
-
-						<div className="mt-3 relative flex flex-col overflow-hidden">
-							<p
-								ref={ref}
-								className="text-[17px] md:text-2xl transform-none opacity-100"
-								style={{
-									transform: isInView ? "none" : "translateX(-200px)",
-									opacity: isInView ? 1 : 0,
-									transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
-								}}
-							>
-								I
-								<span
-									className="absolute flex flex-col transition-all duration-500 ease-in-expo"
-									style={{
-										top:
-											count === 0
-												? "0"
-												: count === 1
-												? "-100%"
-												: count === 2
-												? "-200%"
-												: count === 3
-												? "-300%"
-												: "0",
-										left: "13px"
-									}}
-								>
-									{text.map((element) => (
-										<TextElement key={element} element={element} />
-									))}
-								</span>
-							</p>
-						</div>
-
-						<p
-							tabIndex="0"
-							ref={ref}
-							className="mt-3 mb-10 text-gray-500 text-xl"
-							style={{
-								transform: isInView ? "none" : "translateX(-200px)",
-								opacity: isInView ? 1 : 0,
-								transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
-							}}
-						>
-							Stick around to see some of my work.
-						</p>
-						<div
-							ref={ref}
-							style={{
-								transform: isInView ? "none" : "translateY(50px)",
-								opacity: isInView ? 1 : 0,
-								transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
-							}}
-						>
-							<Link
-								href="./projects"
-								tabIndex="0"
-								className="btn"
-								aria-label="Latest projects"
-							>
-								Check out my latest Projects
-							</Link>
-						</div>
-					</div>
-
-					{isTabletUp && <WelcomeAnimation />}
-				</div>
-			</section>
-		</LazyMotion>
-	);
-}
-
-function TextElement({ element }) {
-	const firstWord = <b>{element.split(" ").at(0)}</b>;
-	const restWords = element.split(" ").slice(1).join(" ");
-	const ref = useRef(null);
-	const isInView = useInView(ref, { once: true });
-
-	return (
-		<span
-			tabIndex="0"
-			ref={ref}
-			className="text-[17px] md:text-2xl"
-			style={{
-				transform: isInView ? "none" : "translateX(-200px)",
-				opacity: isInView ? 1 : 0,
-				transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
-			}}
-		>
-			{firstWord} {restWords}
-		</span>
-	);
+      {showButton && (
+        <a
+          href="/CV_LAVISH_NEW_2.pdf"
+          download
+          className="absolute bottom-20 left-[32%] transform -translate-x-1/2 px-6 py-3 bg-blue-600 text-white rounded-xl shadow-md hover:bg-blue-700 transition z-50"
+          style={{ fontFamily: "Avenir, sans-serif" }}
+        >
+          DOWNLOAD RESUME
+        </a>
+      )}
+    </section>
+  );
 }

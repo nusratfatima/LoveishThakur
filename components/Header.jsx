@@ -1,22 +1,46 @@
 "use client";
 
-import { Logo, Menu, ConnectMedia, MobileMenu, ThemeSwitcher } from "@/components";
+import { Logo, Menu, MobileMenu } from "@/components";
 import { useMediaQuery } from "@/utils";
 
 export function AppHeader() {
 	const isMobile = useMediaQuery();
 
 	return (
-		<header className="pt-5 pb-5 sticky top-0 z-10 bg-gray-900
-		 shadow-sm">
+		<header className="fixed top-0 left-0 w-full py-2 z-50 font-[avenir-light] bg-transparent">
 			<div className="container-md">
-				<div className="flex justify-between items-center gap-3">
-					<Logo />
-					{isMobile ? <MobileMenu /> : <Menu />}
-					<div className="flex items-center gap-5">
-						{!isMobile && <ConnectMedia />}
-						<ThemeSwitcher />
-					</div>
+				<div className="flex justify-center items-center gap-5 text-sm">
+					<Logo className="w-16 h-auto" />
+					{isMobile ? (
+						<MobileMenu />
+					) : (
+						<nav className="flex gap-6 space-x-8">
+							<a
+								href="#home"
+								className="text-black hover:text-[#2463a6] transition-colors duration-150"
+							>
+								Home
+							</a>
+							<a
+								href="#about"
+								className="text-black hover:text-[#2463a6] transition-colors duration-150"
+							>
+								About
+							</a>
+							<a
+								href="#work"
+								className="text-black hover:text-[#2463a6] transition-colors duration-150"
+							>
+								Work
+							</a>
+							<a
+								href="#contact"
+								className="text-black hover:text-[#2463a6] transition-colors duration-150"
+							>
+								Contact
+							</a>
+						</nav>
+					)}
 				</div>
 			</div>
 		</header>

@@ -22,7 +22,7 @@ export function Menu({ onClick = () => {} }) {
 
 	mainMenu = (
 		<m.nav initial={initial} animate={animate} exit={exit} transition={transition} role="menu">
-			<ul className="flex justify-center gap-5 flex-col md:flex-row items-start md:items-center">
+			<ul className="flex justify-center gap-20 flex-col md:flex-row items-start md:items-center">
 				{MENU_OPTIONS.sort(sortAscending).map((menuItem) => (
 					<li key={menuItem.id}>
 						<a

@@ -1,74 +1,57 @@
-"use client"
-import { useRef } from "react";
-import { LazyMotion, domAnimation, useInView } from "framer-motion";
-import { HeadingDivider } from "components";
-import { TECHNOLOGIES } from "../../../constants";
+"use client"; 
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { containerVariants, itemVariants, fadeInDown } from "./technologies-animation.js";
 
-export function TechnologiesSection() {
-	const textRef = useRef(null);
-	const stackRef = useRef(null);
-	const isTextInView = useInView(textRef, { once: true });
-	const isStackInView = useInView(stackRef, { once: true });
+const techLogos = [
+  { name: "Adobe After Effects", src: "/logos/Adobe After Effects.png" },
+  { name: "Adobe Illustrator", src: "/logos/Adobe Ai.png" },
+  { name: "Adobe Photoshop", src: "/logos/Adobe photoShop.png" },
+  { name: "Adobe Premiere Pro", src: "/logos/Adobe Premiere pro.png" },
+  { name: "DaVinci Resolve", src: "/logos/DaVinchi ReSolve.png" },
+  { name: "FL Studio", src: "/logos/Fl Studio.png" },
+  { name: "MidJourney", src: "/logos/MIdJourney.png" },
+  { name: "Runway", src: "/logos/RunWay.png" },
+  { name: "Vegas Pro", src: "/logos/Vegas Pro.png" },
+];
 
-	return (
-		<LazyMotion features={domAnimation}>
-			<section id="tech" className="section">
-				<HeadingDivider title="Technologies" />
-				<p
-					ref={textRef}
-					tabIndex="0"
-					className="my-5 text-2xl"
-					style={{
-						transform: isTextInView ? "none" : "translateX(-200px)",
-						opacity: isTextInView ? 1 : 0,
-						transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
-					}}
-				>
-					I work with the following technologies and tools:
-				</p>
+export default function TechnologiesSection() {
+  return (
+    <motion.section
+      className="py-20 bg-[#fbfcee] text-[#3971b8] font-[avenir]"
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.2 }}
+    >
+      <motion.h2
+        className="text-3xl font-bold text-center mb-12"
+        variants={fadeInDown}
+      >
+        SOFTWARE's I'M SKILLED AT
+      </motion.h2>
 
-				{!!TECHNOLOGIES.length && (
-					<div className="mt-10 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-10">
-						{TECHNOLOGIES.map((tech, index) => {
-							return (
-								<div
-									key={tech.category}
-									ref={stackRef}
-									className="flex flex-col gap-4 flex-1 md:flex-auto"
-									style={{
-										transform: isStackInView
-											? "none"
-											: `${index === 0 ? "translateY(250px)" : `translateY(${200 / index}px)`}`,
-										opacity: isStackInView ? 1 : 0,
-										transition: `all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) ${
-											index === 0 ? 0 : 0.5 * index
-										}s`
-									}}
-								>
-									<h3 tabIndex="0" className="text-2xl font-bold">
-										{tech.category}
-									</h3>
-									<div className="flex items-center flex-wrap gap-x-5 gap-y-8">
-										{tech.items.map((item) => (
-											<div key={item.name} className="group relative flex">
-												<span tabIndex="0" role="img">
-													{item.icon}
-												</span>
-												<span
-													className="group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity bg-gray-800 text-sm text-gray-100 rounded-md absolute left-1/2
-    -translate-x-1/2 translate-y-full opacity-0 mt-3 mx-auto px-2 w-max"
-												>
-													{item.name}
-												</span>
-											</div>
-										))}
-									</div>
-								</div>
-							);
-						})}
-					</div>
-				)}
-			</section>
-		</LazyMotion>
-	);
+      <motion.div
+        className="flex justify-center gap-4 flex-wrap"
+        variants={containerVariants}
+      >
+        {techLogos.map((tech, index) => (
+          <motion.div
+            key={index}
+            className="flex-1 min-w-[80px] max-w-[120px] h-32 flex flex-col items-center justify-center bg-[#fbfcee] text-[#3971b8] rounded-xl shadow-[6px_6px_15px_rgba(0,0,0,0.3)] hover:scale-105 transition-transform font-[avenir]"
+            variants={itemVariants}
+          >
+            <Image
+              src={tech.src}
+              alt={tech.name}
+              width={60}
+              height={60}
+              className="object-contain"
+            />
+            <p className="mt-2 text-xs font-medium text-center">{tech.name}</p>
+          </motion.div>
+        ))}
+      </motion.div>
+    </motion.section>
+  );
 }
