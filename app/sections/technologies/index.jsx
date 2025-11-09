@@ -28,7 +28,7 @@ export default function TechnologiesSection() {
         className="text-3xl font-bold text-center mb-12"
         variants={fadeInDown}
       >
-        SOFTWARE's I'M SKILLED AT
+        SOFTWARE&apos;S I&apos;M SKILLED AT
       </motion.h2>
 
       <motion.div
