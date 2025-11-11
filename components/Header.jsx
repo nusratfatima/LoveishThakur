@@ -7,7 +7,7 @@ export function AppHeader() {
 	const isMobile = useMediaQuery();
 
 	return (
-		<header className="fixed top-0 left-0 w-full py-2 z-50 font-[avenir-light] bg-transparent">
+		<header className="fixed top-0 left-0 w-full py-2 z-50 font-[avenir-light]" style={{ backgroundColor: "rgba(251, 252, 238, 0.6)" }}>
 			<div className="container-md">
 				<div className="flex justify-center items-center gap-5 text-sm">
 					<Logo className="w-16 h-auto" />
@@ -22,10 +22,10 @@ export function AppHeader() {
 								Home
 							</a>
 							<a
-								href="#about"
+								href="#experience"
 								className="text-black hover:text-[#2463a6] transition-colors duration-150"
 							>
-								About
+								Experience
 							</a>
 							<a
 								href="#work"
