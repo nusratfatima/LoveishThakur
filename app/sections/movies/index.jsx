@@ -11,13 +11,13 @@ export default function MoviesSection() {
   const bollywood = [
     { id: 1, src: "/movies/tereishqmein.PNG" },
     { id: 2, src: "/movies/Ik Kudi.png" },
-    { id: 2, src: "/movies/homebound.jpg" },
-    { id: 3, src: "/movies/SZP-16x9-Main-open-digital.jpg" },
-    { id: 4, src: "/movies/RRPKR.jpg" },
-    { id: 5, src: "/movies/tp.jpg" },
-    { id: 6, src: "/movies/16-x-9_IB-71_Ensemble.jpg" },
-    { id: 7, src: "/movies/Bheed.jpg" },
-    { id: 8, src: "/movies/SV.png" }
+    { id: 3, src: "/movies/homebound.jpg" },
+    { id: 4, src: "/movies/SZP-16x9-Main-open-digital.jpg" },
+    { id: 5, src: "/movies/RRPKR.jpg" },
+    { id: 6, src: "/movies/tp.jpg" },
+    { id: 7, src: "/movies/16-x-9_IB-71_Ensemble.jpg" },
+    { id: 8, src: "/movies/Bheed.jpg" },
+    { id: 9, src: "/movies/SV.png" },
   ];
 
   // Hollywood movies (portrait)
@@ -29,7 +29,7 @@ export default function MoviesSection() {
     { id: 5, src: "/movies/Trap.jpg" },
     { id: 6, src: "/movies/Twisters.jpg" },
     { id: 7, src: "/movies/The-Lord-of-the-Rings-The-War-of-the-Rohirrim.jpg" },
-    { id: 8, src: "/movies/The-Watchers.jpg" }
+    { id: 8, src: "/movies/The-Watchers.jpg" },
   ];
 
   return (
@@ -59,12 +59,12 @@ export default function MoviesSection() {
           }}
         />
 
-        {/* Bollywood Row (Left ➜ Right) */}
+        {/* Bollywood Row (Left ↔ Right) */}
         <div className="w-full py-2 overflow-hidden">
           <div
             className="flex whitespace-nowrap gap-2"
             style={{
-              animation: "scroll-ltr 30s linear infinite",
+              animation: "scroll-pingpong-ltr 30s linear infinite alternate",
             }}
           >
             {bollywood.concat(bollywood).map((work, i) => (
@@ -83,12 +83,12 @@ export default function MoviesSection() {
           </div>
         </div>
 
-        {/* Hollywood Row (Right ➜ Left) */}
+        {/* Hollywood Row (Right ↔ Left) */}
         <div className="w-full py-2 overflow-hidden">
           <div
             className="flex whitespace-nowrap gap-2"
             style={{
-              animation: "scroll 30s linear infinite",
+              animation: "scroll-pingpong-rtl 30s linear infinite alternate",
             }}
           >
             {hollywood.concat(hollywood).map((work, i) => (
@@ -107,9 +107,9 @@ export default function MoviesSection() {
           </div>
         </div>
 
-        {/* Inline keyframes */}
+        {/* Updated keyframes for smooth ping-pong motion */}
         <style jsx>{`
-          @keyframes scroll {
+          @keyframes scroll-pingpong-rtl {
             0% {
               transform: translateX(0);
             }
@@ -117,7 +117,8 @@ export default function MoviesSection() {
               transform: translateX(-50%);
             }
           }
-          @keyframes scroll-ltr {
+
+          @keyframes scroll-pingpong-ltr {
             0% {
               transform: translateX(-50%);
             }

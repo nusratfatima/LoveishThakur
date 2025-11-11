@@ -16,25 +16,25 @@ export function AppHeader() {
 					) : (
 						<nav className="flex gap-6 space-x-8">
 							<a
-								href="#home"
+								href="/sections/introduction"
 								className="text-black hover:text-[#2463a6] transition-colors duration-150"
 							>
 								Home
 							</a>
 							<a
-								href="#experience"
+								href="/sections/experiance"
 								className="text-black hover:text-[#2463a6] transition-colors duration-150"
 							>
 								Experience
 							</a>
 							<a
-								href="#work"
+								href="/sections/movies"
 								className="text-black hover:text-[#2463a6] transition-colors duration-150"
 							>
 								Work
 							</a>
 							<a
-								href="#contact"
+								href="/sections/movies"
 								className="text-black hover:text-[#2463a6] transition-colors duration-150"
 							>
 								Contact
