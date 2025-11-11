@@ -84,7 +84,8 @@ export default function ExperianceSection() {
 
         {experiences.map((exp, index) => {
           const isLeftSide = index % 2 === 0;
-          const isRightAlignedHeading =
+          // target the two companies you asked for
+          const isSpecial =
             exp.company.includes("Small Big Idea") ||
             exp.company.includes("Sumit Khetan");
 
@@ -99,25 +100,27 @@ export default function ExperianceSection() {
             >
               {isLeftSide ? (
                 <>
+                  {/* LEFT SIDE CARD */}
                   <div
-                    className="w-5/12 text-right pr-6 text-justify whitespace-pre-line"
+                    className={`w-5/12 pr-6 text-justify whitespace-pre-line`}
                     style={{ color: "#fbfcee" }}
                   >
-                    {/* Heading */}
-                    <div
-                      className={`${
-                        isRightAlignedHeading
-                          ? "text-right mr-0"
-                          : "text-right mr-[-10px]"
-                      }`}
-                    >
-                      <h3 className="text-xl font-semibold">{exp.role}</h3>
-                      <p className="italic opacity-80">{exp.company}</p>
-                    </div>
-
-                    {exp.duration && (
-                      <p className="text-sm mb-2 opacity-90">{exp.duration}</p>
+                    {/* If special, make role/company/duration right-aligned (toward the star) */}
+                    {isSpecial ? (
+                      <div className="text-right mr-0">
+                        <h3 className="text-xl font-semibold">{exp.role}</h3>
+                        <p className="italic opacity-80">{exp.company}</p>
+                        {exp.duration && (
+                          <p className="text-sm mb-2 opacity-90">{exp.duration}</p>
+                        )}
+                      </div>
+                    ) : (
+                      <div className="text-right mr-[-10px]">
+                        <h3 className="text-xl font-semibold">{exp.role}</h3>
+                        <p className="italic opacity-80">{exp.company}</p>
+                      </div>
                     )}
+
                     <p className="opacity-90 leading-relaxed">{exp.description}</p>
                     <p className="mt-2 text-xs opacity-80 italic">{exp.tech}</p>
                   </div>
@@ -144,25 +147,27 @@ export default function ExperianceSection() {
                     <Star size={18} />
                   </motion.div>
 
+                  {/* RIGHT SIDE CARD */}
                   <div
-                    className="w-5/12 pl-6 text-justify whitespace-pre-line"
+                    // If special, force text-right so role/company/duration sit on right side of their column.
+                    className={`w-5/12 pl-6 whitespace-pre-line text-justify`}
                     style={{ color: "#fbfcee" }}
                   >
-                    {/* Heading */}
-                    <div
-                      className={`${
-                        isRightAlignedHeading
-                          ? "text-right mr-0"
-                          : "text-left ml-[-10px]"
-                      }`}
-                    >
-                      <h3 className="text-xl font-semibold">{exp.role}</h3>
-                      <p className="italic opacity-80">{exp.company}</p>
-                    </div>
-
-                    {exp.duration && (
-                      <p className="text-sm mb-2 opacity-90">{exp.duration}</p>
+                    {isSpecial ? (
+                      <div className="text-right">
+                        <h3 className="text-xl font-semibold">{exp.role}</h3>
+                        <p className="italic opacity-80">{exp.company}</p>
+                        {exp.duration && (
+                          <p className="text-sm mb-2 opacity-90">{exp.duration}</p>
+                        )}
+                      </div>
+                    ) : (
+                      <div className="text-left ml-[-10px]">
+                        <h3 className="text-xl font-semibold">{exp.role}</h3>
+                        <p className="italic opacity-80">{exp.company}</p>
+                      </div>
                     )}
+
                     <p className="opacity-90 leading-relaxed">{exp.description}</p>
                     <p className="mt-2 text-xs opacity-80 italic">{exp.tech}</p>
                   </div>
