@@ -82,76 +82,95 @@ export default function ExperianceSection() {
           style={{ borderLeft: "2px solid #fbfcee" }}
         />
 
-        {experiences.map((exp, index) => (
-          <motion.div
-            key={index}
-            className="mb-12 flex justify-between items-start w-full"
-            variants={itemVariants}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.2 }}
-          >
-            {index % 2 === 0 ? (
-              <>
-                <div
-                  className="w-5/12 text-right pr-6 text-justify whitespace-pre-line"
-                  style={{ color: "#fbfcee" }}
-                >
-                  {/* Heading near star */}
-                  <div className="text-right mr-[-10px]">
-                    <h3 className="text-xl font-semibold">{exp.role}</h3>
-                    <p className="italic opacity-80">{exp.company}</p>
+        {experiences.map((exp, index) => {
+          const isLeftSide = index % 2 === 0;
+          const isRightAlignedHeading =
+            exp.company.includes("Small Big Idea") ||
+            exp.company.includes("Sumit Khetan");
+
+          return (
+            <motion.div
+              key={index}
+              className="mb-12 flex justify-between items-start w-full"
+              variants={itemVariants}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.2 }}
+            >
+              {isLeftSide ? (
+                <>
+                  <div
+                    className="w-5/12 text-right pr-6 text-justify whitespace-pre-line"
+                    style={{ color: "#fbfcee" }}
+                  >
+                    {/* Heading */}
+                    <div
+                      className={`${
+                        isRightAlignedHeading
+                          ? "text-right mr-0"
+                          : "text-right mr-[-10px]"
+                      }`}
+                    >
+                      <h3 className="text-xl font-semibold">{exp.role}</h3>
+                      <p className="italic opacity-80">{exp.company}</p>
+                    </div>
+
+                    {exp.duration && (
+                      <p className="text-sm mb-2 opacity-90">{exp.duration}</p>
+                    )}
+                    <p className="opacity-90 leading-relaxed">{exp.description}</p>
+                    <p className="mt-2 text-xs opacity-80 italic">{exp.tech}</p>
                   </div>
 
-                  {exp.duration && (
-                    <p className="text-sm mb-2 opacity-90">{exp.duration}</p>
-                  )}
-                  <p className="opacity-90 leading-relaxed">{exp.description}</p>
-                  <p className="mt-2 text-xs opacity-80 italic">{exp.tech}</p>
-                </div>
+                  <motion.div
+                    className="flex items-center justify-center w-10 h-10 rounded-full"
+                    style={{ backgroundColor: "#fbfcee", color: "#3971b8" }}
+                    variants={scaleIn}
+                  >
+                    <Star size={18} />
+                  </motion.div>
 
-                <motion.div
-                  className="flex items-center justify-center w-10 h-10 rounded-full"
-                  style={{ backgroundColor: "#fbfcee", color: "#3971b8" }}
-                  variants={scaleIn}
-                >
-                  <Star size={18} />
-                </motion.div>
+                  <div className="w-5/12"></div>
+                </>
+              ) : (
+                <>
+                  <div className="w-5/12"></div>
 
-                <div className="w-5/12"></div>
-              </>
-            ) : (
-              <>
-                <div className="w-5/12"></div>
+                  <motion.div
+                    className="flex items-center justify-center w-10 h-10 rounded-full"
+                    style={{ backgroundColor: "#fbfcee", color: "#3971b8" }}
+                    variants={scaleIn}
+                  >
+                    <Star size={18} />
+                  </motion.div>
 
-                <motion.div
-                  className="flex items-center justify-center w-10 h-10 rounded-full"
-                  style={{ backgroundColor: "#fbfcee", color: "#3971b8" }}
-                  variants={scaleIn}
-                >
-                  <Star size={18} />
-                </motion.div>
+                  <div
+                    className="w-5/12 pl-6 text-justify whitespace-pre-line"
+                    style={{ color: "#fbfcee" }}
+                  >
+                    {/* Heading */}
+                    <div
+                      className={`${
+                        isRightAlignedHeading
+                          ? "text-right mr-0"
+                          : "text-left ml-[-10px]"
+                      }`}
+                    >
+                      <h3 className="text-xl font-semibold">{exp.role}</h3>
+                      <p className="italic opacity-80">{exp.company}</p>
+                    </div>
 
-                <div
-                  className="w-5/12 pl-6 text-justify whitespace-pre-line"
-                  style={{ color: "#fbfcee" }}
-                >
-                  {/* Heading near star */}
-                  <div className="text-left ml-[-10px]">
-                    <h3 className="text-xl font-semibold">{exp.role}</h3>
-                    <p className="italic opacity-80">{exp.company}</p>
+                    {exp.duration && (
+                      <p className="text-sm mb-2 opacity-90">{exp.duration}</p>
+                    )}
+                    <p className="opacity-90 leading-relaxed">{exp.description}</p>
+                    <p className="mt-2 text-xs opacity-80 italic">{exp.tech}</p>
                   </div>
-
-                  {exp.duration && (
-                    <p className="text-sm mb-2 opacity-90">{exp.duration}</p>
-                  )}
-                  <p className="opacity-90 leading-relaxed">{exp.description}</p>
-                  <p className="mt-2 text-xs opacity-80 italic">{exp.tech}</p>
-                </div>
-              </>
-            )}
-          </motion.div>
-        ))}
+                </>
+              )}
+            </motion.div>
+          );
+        })}
       </div>
     </motion.section>
   );
