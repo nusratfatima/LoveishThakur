@@ -28,7 +28,7 @@ const scaleIn = {
 
 const experiences = [
   {
-    role: "Associate Lead - (Currently Working)",
+    role: "Associate Lead - (Present)",
     company: "Motion Graphics Artist | The Small Big Idea",
     duration: "",
     description: `I have driven creative initiatives for leading brands such as AGL Tiles, Colors, Zee TV, Zee Cinema, Sony Pictures India, Disney India, Jio Cinema, Ajay Devgn Films, Chrome Pictures, Warner Bros India, Warner Bros., Sony LIV, and more.
@@ -97,8 +97,12 @@ export default function ExperianceSection() {
                   className="w-5/12 text-right pr-6 text-justify whitespace-pre-line"
                   style={{ color: "#fbfcee" }}
                 >
-                  <h3 className="text-xl font-semibold">{exp.role}</h3>
-                  <p className="italic opacity-80">{exp.company}</p>
+                  {/* Heading near star */}
+                  <div className="text-right mr-[-10px]">
+                    <h3 className="text-xl font-semibold">{exp.role}</h3>
+                    <p className="italic opacity-80">{exp.company}</p>
+                  </div>
+
                   {exp.duration && (
                     <p className="text-sm mb-2 opacity-90">{exp.duration}</p>
                   )}
@@ -132,8 +136,12 @@ export default function ExperianceSection() {
                   className="w-5/12 pl-6 text-justify whitespace-pre-line"
                   style={{ color: "#fbfcee" }}
                 >
-                  <h3 className="text-xl font-semibold">{exp.role}</h3>
-                  <p className="italic opacity-80">{exp.company}</p>
+                  {/* Heading near star */}
+                  <div className="text-left ml-[-10px]">
+                    <h3 className="text-xl font-semibold">{exp.role}</h3>
+                    <p className="italic opacity-80">{exp.company}</p>
+                  </div>
+
                   {exp.duration && (
                     <p className="text-sm mb-2 opacity-90">{exp.duration}</p>
                   )}
