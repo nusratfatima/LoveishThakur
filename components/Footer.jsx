@@ -19,7 +19,12 @@ export function AppFooter() {
           <p className="font-light" style={{ color: "#fbfcee" }}>
             Copyright &copy; {year} Nusrat Fatima
           </p>
-
+          <p className="font-light"
+            style={{
+            color: "#fbfcee",
+            paddingRight: "25rem", // roughly 13 spaces worth
+            }}
+          ></p>
           <div className="flex flex-col md:flex-row items-center gap-5 text-sm">
             <a
               href="mailto:loveishvfx@gmail.com"
@@ -28,6 +33,7 @@ export function AppFooter() {
             >
               <Mail size={18} /> loveishvfx@gmail.com
             </a>
+
             <a
               href="https://www.linkedin.com/in/loveishvfx"
               target="_blank"
@@ -37,6 +43,7 @@ export function AppFooter() {
             >
               <Linkedin size={18} /> Linkedin
             </a>
+
             <a
               href="https://www.instagram.com/loveishvfx/"
               target="_blank"
@@ -46,6 +53,7 @@ export function AppFooter() {
             >
               <Instagram size={18} /> Instagram
             </a>
+
             <a
               href="tel:+917669928801"
               className="flex items-center gap-2 hover:underline"

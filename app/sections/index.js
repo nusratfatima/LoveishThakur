@@ -8,12 +8,29 @@ import Technologies from "./technologies";
 export default function HomePage() {
   return (
     <>
-      <section id="home"><Introduction /></section>
-      <section id="experience"><Experience /></section>
-      <section id="work"><Movies /></section>
-      <section id="brands"><Brands /></section>
-      <section id="technologies"><Technologies /></section>
-      <section id="contact"><Video /></section>
+      <section id="home">
+        <Introduction />
+      </section>
+
+      <section id="experience">
+        <Experience />
+      </section>
+
+      <section id="work">
+        <Movies />
+      </section>
+
+      <section id="brands">
+        <Brands />
+      </section>
+
+      <section id="technologies">
+        <Technologies />
+      </section>
+
+      <section id="contact">
+        <Video />
+      </section>
     </>
   );
 }
