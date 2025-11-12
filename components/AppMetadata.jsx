@@ -1,12 +1,12 @@
-const author = "Niranjan Patil";
+const author = "Lavish Thakur";
 const description =
-  "Software developer from Moldova, Republic of, who loves to develop beautiful websites, single page applications, customer relationship management or code from scratch using React and Next.js";
-const url = "https://niranjann.tech";
+  "VFX artist and creative designer who brings cinematic visuals to life through motion, compositing, and storytelling. Experienced in blending art and technology to craft compelling digital experiences.";
+const url = "https://loveishvfx.in";
 
 export const AppMetadata = {
-  metadataBase: new URL("https://niranjann.tech/"),
+  metadataBase: new URL("https://loveishvfx.in/"),
   title: {
-    default: `Portfolio | ${author}`,  // author must be defined before use
+    default: `Portfolio | ${author}`,
     template: `%s | ${author}`,
   },
   description: description,
@@ -14,12 +14,12 @@ export const AppMetadata = {
     icon: "/favicon.png",
   },
   keywords: [
-    "Niranjan Patil",
-    "Niranjan Patil - software developer",
-    "Frontend developer",
-    "Flutter developer",
-    "Portfolio website",
-    "Frontend Developer Portfolio",
+    "Lavish Thakur",
+    "Lavish Thakur - VFX Artist",
+    "Motion Designer",
+    "Cinematic Visual Effects",
+    "VFX Portfolio",
+    "Visual Artist Portfolio",
   ],
   creator: author,
   authors: [{ name: author, url: url }],
@@ -30,16 +30,16 @@ export const AppMetadata = {
     siteName: `${author} | Portfolio`,
     images: [
       {
-        url: "https://niranjann.tech",
+        url: "https://loveishvfx.in/og-image.jpg",
         width: 800,
         height: 600,
-        alt: "My personal portfolio website",
+        alt: "Lavish Thakur Portfolio Preview",
       },
       {
-        url: "https://niranjann.tech",
+        url: "https://loveishvfx.in/og-image.jpg",
         width: 1800,
         height: 1600,
-        alt: "My personal portfolio website",
+        alt: "Lavish Thakur Portfolio Preview",
       },
     ],
     locale: "en-US",
