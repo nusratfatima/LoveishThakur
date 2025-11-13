@@ -34,13 +34,13 @@ export function AppHeader() {
 								href="#work"
 								className="text-black hover:text-[#2463a6] transition-colors duration-150"
 							>
-								WORK
+								MOVIES
 							</a>
 							<a
 								href="#contact"
 								className="text-black hover:text-[#2463a6] transition-colors duration-150"
 							>
-								CONTACT
+								PROJECTS
 							</a>
 						</nav>
 					)}
